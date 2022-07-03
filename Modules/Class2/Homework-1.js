@@ -1,20 +1,62 @@
 /**
- * Convert temperature values in to different units
+ * Convert temperature values into different units
  * 
- * F-> C
+ * F -> C
  * F -> K
  * 
  * C -> F
- * c -> K
+ * C -> K
  * 
  * K -> F
  * K -> C
  * 
- * https://www.rapidtables.com/convert/temperature/index.html
+ * Refer link for formula:
+ * https://www.rapidtables.com/convert/temperature/fahrenheit-to-celsius.html
  * 
- * Due Date Jul-3 EOD
+ * 
+ * Due Date: Jul-3 EOD
+ * 
  */
 
-let fTemp1 = 90;
-let cTemp1 = (fTemp1 - 32) * 5/9;
-console.log(`\n${fTemp1}°F is equals to ${cTemp1}°C`);
+
+ let fTemp = 90;
+
+// F -> C
+// T(°C) = (T(°F) - 32) × 5/9
+
+let fToCtemp = (fTemp - 32) * 5/9;
+console.log(`\n${fTemp}°F is equals to ${fToCtemp}°C`);
+
+
+// F ==> K
+// T(K) = (T(°F) + 459.67)× 5/9
+let fToKtemp = ((fTemp) + 459.67) * 5/9;
+console.log(`\n${fTemp}°F is equal to ${fToKtemp}K`);
+
+//
+
+let cTemp = 42;
+
+// C -> F
+// T(°F) = T(°C) × 9/5 + 32
+let cToFtemp = cTemp * 9/5 + 32;
+console.log(`\n${cTemp}°C is equal to ${cToFtemp}°F`);
+
+// C -> K
+// T(K) = T(°C) + 273.15
+let cToKtemp = cTemp + 273.15;
+console.log(`\n${cTemp}°C is equal to ${cToKtemp}K`);
+
+//
+
+let kTemp = 100;
+
+// K -> F
+//T(°F) = T(K) × 9/5 - 459.67
+let kToFtemp = kTemp * 9/5 - 459.67;
+console.log(`\n${kTemp}K is equal ${kToFtemp}°F`);
+
+// K -> C
+//T(°C) = T(K) - 273.15
+let kToCtemp = kTemp - 273.15
+console.log(`\n${kTemp} is equal to ${kToCtemp}°C`);
