@@ -8,7 +8,7 @@ let result1 = 0;
  * otherwise
  *      assign 25 in result1
  */
-result1 = sentence1.length > 10 ? 15 : 25;
+result1 = sentence1.length >= 10 ? 15 : 25;
 console.log(`result1 -> ${result1}`);
 
 
@@ -21,7 +21,7 @@ console.log(`\nsentence with all a/A replaced with the word'Alpha':\n${sentenceR
 
 //
 
-const sentence3 = "HeAlTh wAs EArlIer said To Be the AbILitY of the bOdY funcTiOnInG WElL bOdY.";
+const sentence3 = "HeAlTh wAs EArlIer said To Be the AbILitY of the bOdY funcTiOnInG WElL.";
 /**
  * print the result in console:
  * 1. the length of sentence-3
@@ -44,10 +44,10 @@ let sentence3CheckIndexof_Body = sentence3.toLowerCase().replace(/b/gi,'B').inde
 console.log(`\n4. Index of 'Body' in sentence3: ${sentence3CheckIndexof_Body}`);
 
 
-
-
 let sentence3EndsWith = sentence3.charAt(sentence3CheckLength - 1);
 console.log(`\n5. The last character in the sentence3: ${sentence3EndsWith}`);
 
-let sentence3CountOfWOrkd_Body = sentence3.toLowerCase().replace(/b/gi, 'B').match(/Body/g);
-console.log(`\n6. Word 'Body' is present only once: ${sentence3CountOfWOrkd_Body}`);
+let bodyFirstCount = sentence3.toLowerCase().replace(/b/gi, 'B').indexOf('Body');
+let bodyNextCount = sentence3.toLowerCase().replace(/b/gi, 'B').lastIndexOf('Body');
+let bodyCompare = bodyFirstCount == bodyNextCount && bodyFirstCount >= 0;
+console.log(`\n6. Word 'Body' is present only once: ${bodyCompare}` );
