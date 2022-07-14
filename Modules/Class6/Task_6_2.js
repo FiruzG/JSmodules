@@ -8,16 +8,16 @@
 //     Note: if day value is not valid -> print an error saying "Entered day-value is not valid"
 //     User can provide day-name is any form, Mon or MOn or MON or MoN or monday or MonDAy or MONDAY
 
-let dayOfTheWeek = 'monday';
+let dayOfTheWeek = 'TUE';
 const dayOfTheWeekLower = dayOfTheWeek.toLowerCase();
 
-if (dayOfTheWeekLower == 'mon' || dayOfTheWeek == 'monday') {
+if (dayOfTheWeekLower == 'mon' || dayOfTheWeekLower == 'monday' ) {
     console.log('Today is the Technosoft class');
-} else if (dayOfTheWeekLower == 'tue' || dayOfTheWeek == 'tuesday') {
+} else if (dayOfTheWeekLower == 'tue' || dayOfTheWeekLower == 'tuesday') {
     console.log("Today is self learning day");
-} else if (dayOfTheWeekLower == 'wed' || dayOfTheWeek == 'wednsday'){
+} else if (dayOfTheWeekLower == 'wed' || dayOfTheWeekLower == 'wednsday'){
     console.log("Today is the Technosoft class");
-} else if (dayOfTheWeekLower == 'thu' || dayOfTheWeek == 'thursda'){
+} else if (dayOfTheWeekLower == 'thu' || dayOfTheWeekLower == 'thursda'){
 
 } else{
     console.log("Entered day-value is not valid");

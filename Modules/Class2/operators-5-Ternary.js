@@ -24,3 +24,9 @@ let isFirstTimeBuyer = true;
 let mortgaeRate2 = userCreditScore2 > 700 && isFirstTimeBuyer ? 4.5 : 5.5;
 console.log(mortgaeRate2);
 
+let currentTem = 121;
+let season = (currentTem === 80) ? `It's summer` :
+    (currentTem < 40 ) ? `It is winter`:
+    (currentTem > 120) ? `You are in Hell`: 'No Ida';
+
+console.log(`The season is: ${season}`);

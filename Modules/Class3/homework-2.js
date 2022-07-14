@@ -21,7 +21,7 @@ console.log(`\nsentence with all a/A replaced with the word'Alpha':\n${sentenceR
 
 //
 
-const sentence3 = "HeAlTh wAs EArlIer said To Be the AbILitY of the bOdY funcTiOnInG WElL.";
+const sentence3 = "HeAlTh wAs body  EArlIer said To Be the AbILitY of the bOdY funcTiOnInG WElL .";
 /**
  * print the result in console:
  * 1. the length of sentence-3
