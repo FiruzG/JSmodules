@@ -12,10 +12,10 @@ console.log(`\nThe length of the word '${countryName}' is ${arrayCountryName} ch
 /** Q2: 
 * Count the number of words in the sentence 
 */
-const sentence = "HeAlTh wAs EArlIer said To Be the AbILitY of the bOdY funcTiOnInG WElL.";
+const sentence = "HeAlTh  wAs EArlIer said To Be the AbILitY of the bOdY funcTiOnInG WElL.";
 
 let countryWordCount = sentence.split(" ");
-console.log(`\nThe word '${sentence}' consists of ${countryWordCount.length} words.`); 
+console.log(`\nThe sentence '${sentence}' consists of ${countryWordCount.length} words.`); 
 
 
 /** 
@@ -26,8 +26,9 @@ console.log(`\nThe word '${sentence}' consists of ${countryWordCount.length} wor
 * 'YOu lIVe ONlY ONcE' -> 'You Live Only Once' 
 * 
 */
-let theWord = 'shells from seychelles island beach ';
+let theWord = 'shells from seychelles island beach';
 let arrayTheWord = theWord.split(" ");
+console.log(arrayTheWord[0].substring(0, 1).toUpperCase());
 
 let allOneSentencedTheWord = arrayTheWord[0].substring(0, 1).toUpperCase().concat(arrayTheWord[0].substring(1)).concat(
    ' ', arrayTheWord[1].substring(0, 1).toUpperCase().concat(arrayTheWord[1].substring(1)),
