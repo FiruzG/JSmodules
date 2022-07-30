@@ -20,6 +20,7 @@ const revomeValueTest = new RemoveValueFromArray();
 
 arr2 = [21, 32, 12, 43, 45, 65, 12];
 revomeValueTest.removeValueFromArray(arr2, 12); 
+console.log();
 /**
   * Create a function to return the missing smallest positive number in given array
   * 
@@ -38,6 +39,7 @@ const missingNumberTest = new MissingNumber();
 
 const arr = [1, 1, 2, 4, 3, 6, 4, 7, 9]
 missingNumberTest.returnMissingNumber(arr);
+console.log();
  /**
   * Create a function to return the points to be marked against for over speeding.
   * 

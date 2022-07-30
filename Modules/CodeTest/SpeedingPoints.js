@@ -12,7 +12,7 @@ class speedingPoints {
             }
         }
     
-        console.log(points);
+        console.log(`The speed limit is ${speedCurrent} and you are ${speedOver}mph over the speed limit.\nYour speeding point is/are ${points}`);
     
     
     }
