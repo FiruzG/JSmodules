@@ -14,8 +14,8 @@
  */
 
 let num1 = 10;
-// num + 1 same as num1++
-num1++;     //num1 = num + 1
+// num1 + 1 same as num1++
+num1++;     //num1 = num1 + 1
 
 /**
  * decrement operator -- decreases the value of the variable by -1

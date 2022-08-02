@@ -18,7 +18,7 @@ const SpeedingPoints = require('./SpeedingPoints');
  */
 const revomeValueTest = new RemoveValueFromArray();
 
-arr2 = [21, 32, 12, 43, 45, 65, 12];
+const arr2 = [21, 32, 12, 43, 45, 65, 12];
 revomeValueTest.removeValueFromArray(arr2, 12); 
 console.log();
 /**
