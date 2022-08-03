@@ -11,20 +11,20 @@ const MyStringFunctions = require("./MyStringFunctions");
         {
             courseName : 'QA',
             price : 2000,
-            length : 8,
-           
+            length : 8
         },
         {
             courseName : 'Mobile',
             price : 3000,
             length : 12
         }
-    ];
+    ]
 
 
 class Students extends Members {
 
     static #idValue = 0;
+    static #allStudentObjects = [];
     #student = {
         sId : 0,
         sGrade : '',
@@ -35,6 +35,7 @@ class Students extends Members {
         },
         sBalance : 0
     }
+
 
     /**
      * age >= 16
@@ -53,30 +54,28 @@ class Students extends Members {
     constructor(studentName, studentAge, studentCountry, studentCourse) {
         super();
         if (studentAge >= 16 && this.#isCourseNameValid(studentCourse) && studentCountry.toLowerCase().localeCompare('usa') === 0 ) {
-            this.applyCourseChanges(studentCourse);
+            const courseData = this.#isCourseNameValid(studentCourse);
             this.member.name = MyStringFunctions.toTitleCase(studentName);
             this.member.age = studentAge;
             this.member.location = studentCountry.toUpperCase();
+            this.#student.sCourseDetails.courseName = courseData.courseName;
+            this.#student.sCourseDetails.coursePrice = courseData.price;
+            this.#student.sCourseDetails.courseLength = courseData.length;
+            this.#student.sBalance = courseData.price;
             this.#student.sId = ++Students.#idValue;
+            Students.#allStudentObjects.push(this.#student);
             console.log(`\nThank you for enrolling.\nYour id value is ${this.#student.sId}\n`);
         } else {
-            console.log("\nDO NOT ENROLL");
+            throw 'Invalid data provided'
+            // console.log('\nDO NOT ENROLL\n');
         }
     }
 
-    applyCourseChanges(courseName){
-        const courseData = this.#isCourseNameValid(courseName);
-        this.#student.sCourseDetails.courseName = courseData.courseName;
-        this.#student.sCourseDetails.coursePrice = courseData.price;
-        this.#student.sCourseDetails.courseLength = courseData.length;
-        this.#student.sBalance = courseData.price;
-    }
 
-
-    showMyDetails() {
+    showMyDetails = () => {
         console.log(`\nStudent details:\nId: ${this.#student.sId}`);
         super.showMyDetails();
-        console.log(`Course name: ${this.#student.sCourseDetails.courseName}\nCourse Length: ${this.#student.sCourseDetails.courseLength} month(s)\nBalance: $${this.#student.sBalance}\n`);
+        console.log(`Course name: ${this.#student.sCourseDetails.courseName}\nBalance: $${this.#student.sBalance}\n`);
         // console.log(this.student);
     }
 
@@ -119,24 +118,6 @@ class Students extends Members {
      * 
      */
 
-
-    changeCourse(newCourse){
-        if (this.#isCourseNameValid(newCourse) && this.#student.sCourseDetails.courseName == newCourse){
-            console.log(`Student ${this.member.name} is already enroled in ${newCourse} course`);
-
-        } else if (!(this.#isCourseNameValid(newCourse))) {
-            console.log('Please enter a correct course name');
-            // code to loop through a courseDetails and print 
-            // a string with the name of the coruses available to choose
-
-        } else if (this.#isCourseNameValid(newCourse)) {
-            this.applyCourseChanges(newCourse);
-            console.log(`Your course has been successfuly updated.\nCourse details:`);
-            this.showMyDetails();
-        }
-        }
-
-    
     /**
      * makePayment
      * 
@@ -152,21 +133,6 @@ class Students extends Members {
      *      print -> Invalid amount. Your balance is $balance
      * 
      */
-    makePayment(amount){
-
-        if (this.#student.sBalance == 0) {
-            console.log(`Your current balance is $${this.#student.sBalance}. No more payment is required`);
-        } else if (amount > 0 && this.#student.sBalance >= amount){
-            console.log(`Your balance before payment: ${this.#student.sBalance}`);
-            this.#student.sBalance -= amount;
-            console.log(`Your payment of $${amount} has been submited. Thank you.\nYour remaining balance is ${this.#student.sBalance}`);
-        } else {
-            console.log(`Invalid entry. Please enter correct amount.\nYour current balanse is $${this.#student.sBalance}`);
-        }
-        
-        
-        
-    }
 
 
 }

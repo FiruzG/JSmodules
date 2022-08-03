@@ -2,21 +2,14 @@ const Members = require("./Members");
 const MyStringFunctions = require("./MyStringFunctions");
 const Courses = require("./Courses");
 const Students = require("./Students");
-const { isStudentIdValid } = require("./Students");
+//const { isStudentIdValid } = require("./Students");
 
-    // const courseDetails = [
-        
-    // ];
 
 class Teachers extends Members {
 
     static #idValue = 0;
     teacher = {
         tId : 0,
-        // courseDetails :{
-        //     courseName : '',
-        //     courseLength: 0,            
-        // },
         tSalary : 5000
     }
 
@@ -37,10 +30,10 @@ class Teachers extends Members {
             this.applyMemberDetails(teacherName, teacherAge, teacherCountry);
             this.applyCourseChanges(teacherCourseName);
             this.teacher.tId = ++Teachers.#idValue;
-            console.log(`Thank you ${this.member.name}. You have been hired as an Instructor for the ${courseData.courseName} class`);
+            console.log(`Thank you ${this.member.name}. You have been hired as an Instructor for the ${courseData.courseName} class\n`);
 
         } else {
-            console.log(`Do not hire.`);
+            console.log(`Do not hire.\n`);
         }
         // 
     }
@@ -53,10 +46,10 @@ class Teachers extends Members {
 
     changeTeachingCourse(newCourse) {
         if (this.isCourseNameValid(newCourse) && this.appliedCourses.courseName == newCourse){
-            console.log(`You are already teaching ${newCourse} course`);
+            console.log(`You are already teaching ${newCourse} course\n`);
 
         } else if (!(this.isCourseNameValid(newCourse))) {
-            console.log('Please enter a correct course name');
+            console.log('Please enter a correct course name\n');
 
         } else if (this.isCourseNameValid(newCourse)) {
             this.applyCourseChanges(newCourse);
@@ -82,10 +75,20 @@ class Teachers extends Members {
      */
 
     addGrade(studentID, grade) {
-     const test = isStudentIdValid(studentID);
-     console.log(test);
-     test['sGrade'] = 'A';
-     console.log(test);
+        const checkStudentId = Students.isStudentIdValid(studentID);
+        let storeId = checkStudentId.id;
+
+        if(typeof checkStudentId === 'undefined'){
+            console.log('Invalid student ID\n');
+        } else if(storeId === +studentID && checkStudentId.sGrade === ''){
+            checkStudentId.sGrade = grade.toUpperCase();
+            console.log(`The Grade for the Student ID: ${checkStudentId.id} is ${checkStudentId.sGrade}\n`);
+        } else if(!checkStudentId.id) {
+            console.log(`Invalid Stdent ID\n`);
+        } else if(checkStudentId.sGrade){
+            console.log(`Plese remove the grade first\n`);
+        }
+       
     
     }
 
@@ -103,8 +106,18 @@ class Teachers extends Members {
      *      then print -> Invalid student id
      * 
      */
-    removeGrade() {
-        // code
+    removeGrade(studentID) {
+        const checkStudentId = Students.isStudentIdValid(studentID);
+        if(typeof checkStudentId === 'undefined'){
+            console.log('Invalid student ID\n');
+        } else if(checkStudentId.id === +studentID && checkStudentId.sGrade === ''){
+            console.log(`The Student ID: ${checkStudentId.id} is not graded yet\n`);
+        } else if(!checkStudentId.id) {
+            console.log(`Invalid Stdent ID\n`);
+        } else if(checkStudentId.sGrade){
+            checkStudentId.sGrade = '';
+            console.log(`Plese remove the grade first\n`);
+        }
     }
 
 

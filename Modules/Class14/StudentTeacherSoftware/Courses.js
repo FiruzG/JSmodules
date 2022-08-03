@@ -37,10 +37,7 @@ class Courses {
                 this.appliedCourses.courseName = courseData.courseName;
                 this.appliedCourses.courseLength = courseData.length;
                 this.appliedCourses.coursePrice = courseData.price
-                // this.#student.courseDetails.courseName = courseData.courseName;
-                // this.#student.courseDetails.coursePrice = courseData.price;
-                // this.#student.courseDetails.courseLength = courseData.length;
-                // this.#student.sBalance = courseData.price;
+
             }
 
 

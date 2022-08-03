@@ -1,41 +1,12 @@
-const Courses = require("./Courses");
 const Members = require("./Members");
-const MyStringFunctions = require("./MyStringFunctions");
-
-
-    // Array of course-objects
-    // const courseDetails = [
-    //     {
-    //         courseName : 'Automation',
-    //         price : 1000,
-    //         length : 6
-    //     },
-    //     {
-    //         courseName : 'QA',
-    //         price : 2000,
-    //         length : 8,
-           
-    //     },
-    //     {
-    //         courseName : 'Mobile',
-    //         price : 3000,
-    //         length : 12
-    //     }
-    // ];
-
 
 class Students extends Members {
 
     static #idValue = 0;
-    static #allStudentObjects = [];
+    static allStudentObjects = [];
    student = {
         id : 0,
         sGrade : '',
-        // courseDetails : {
-        //     courseName : '',
-        //     coursePrice : 0,
-        //     courseLength : 0,
-        // },
         sBalance : 0
     }
 
@@ -61,27 +32,20 @@ class Students extends Members {
             this.applyMemberDetails(studentName, studentAge, studentCountry);
             this.student.id = ++Students.#idValue;
             this.student.sBalance = courseData.price;
-            Students.#allStudentObjects.push(this.student);
+            Students.allStudentObjects.push(this.student);
             console.log(`\nThank you for enrolling.\nYour id value is ${this.student.id}\n`);
         } else {
             console.log("\nDO NOT ENROLL");
         }
     }
 
-    // applyCourseChanges(courseName){
-    //     const courseData = this.isCourseNameValid(courseName);
-    //     this.#student.courseDetails.courseName = courseData.courseName;
-    //     this.#student.courseDetails.coursePrice = courseData.price;
-    //     this.#student.courseDetails.courseLength = courseData.length;
-    //     this.#student.sBalance = courseData.price;
-    // }
 
 
     showMyDetails() {
         console.log(`\nStudent details:\nId: ${this.student.id}`);
         super.showMyDetails();
-        console.log(`Course name: ${this.appliedCourses.courseName}\nCourse Length: ${this.appliedCourses.courseLength} month(s)\nBalance: $${this.student.sBalance}\n`);
-        // console.log(this.student);
+        console.log(`Course name: ${this.appliedCourses.courseName}\nCourse Length: ${this.appliedCourses.courseLength} month(s)\nBalance: $${this.student.sBalance}\nGrade: ${this.student['sGrade']}`);
+
     }
 
     /**
@@ -90,18 +54,7 @@ class Students extends Members {
     // #isCourseNameValid(checkForCourse) {
     //    return this.courseDetails.find(course => course.courseName.toLowerCase().localeCompare(checkForCourse.toLowerCase()) === 0);
        
-    isStudentIdValid(studentID){
-        for (let i = 0; i <= studentID; i++) {
-            if(studentID === this.student.id){
-                return true;
-                break;
-            } else {
-                console.log(`Invalid student ID`);
-                break;
-            }
-        }       
-    
-    }
+
     /**
         changeCourse
         submitDocuments
@@ -182,7 +135,7 @@ class Students extends Members {
     }
 
     static isStudentIdValid(sId){
-        return Students.#allStudentObjects.find(student => student.id === sId); 
+        return Students.allStudentObjects.find(student => student.id === sId); 
 
     }
 

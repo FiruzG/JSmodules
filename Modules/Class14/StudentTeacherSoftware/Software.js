@@ -10,13 +10,13 @@ const s1 = new Students('jOHn', 20, 'USA', 'mobile');
 const s2 = new Students('gigi', 20, 'USA', 'QA');
 const t1 = new Teachers('deepak', 21, 'USA', 'QA');
 const t2 = new Teachers('Firuz', 21, 'USA', 'Mobile');
-t1.showMyDetails();
-t1.changeTeachingCourse('Mobile');
-t2.showMyDetails();
-t2.addGrade(2);
+//s2.showMyDetails();
+
 //s2.isStudentIdValid(2);
 //console.log(s2.isStudentIdValid(2));
+t2.removeGrade(13)
 
+//t2.removeGrade(1)
 
 
 
@@ -25,7 +25,7 @@ t2.addGrade(2);
 // s2.enrollment('Gigi', 20, 'USA', 'QA');
 
 
-// s2.showMyDetails();
+s1.showMyDetails();
 // s2.changeCourse('Mobile');
 // s2.makePayment(100);
 //s2.isStudentIdValid(4);

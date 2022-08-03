@@ -1,8 +1,11 @@
 /**
+ * 
+ * Due date: Aug 10 2022
+ * 
  * Restaurant
  *      register
  *          user will provide name of restaurant, address, maxCapacity, employees
- *          On successful registration, every restaurant will be given a unique id
+ *          On successful registration, every restaurant will be given an unique id
  *          user should not re-register
  *      open
  *          user should open restaurant
@@ -14,6 +17,7 @@
  *          user should able to use clean-method to clean restaurant
  *      permanentlyClose
  *          user should be able to permanently close restaurant
+ *          user should NOT be able to permanently close a restaurant is it's already.
  *          if permanently deleted:
  *              user should not be able to perform any action(open/close/clean/showDetails etc) for restaurant unless re-register it
  *      showTotalEmployees
@@ -49,10 +53,10 @@
  *          user should not be able to lock house if already locked
  *      clean
  *          user should able to use clean-method to clean house
- *      demolished
+ *      demolish
  *          user should be able to demolish a house
  *          if demolished:
- *              user should not be able to perform any action(open/close/clean/showDetails etc) for restaurant unless re-register it
+ *              user should not be able to perform any action(unlock/lock/addMember/showTotalMembers etc) for restaurant unless re-register it
  *      showTotalMembers
  *      addMember
  *      removeMember
@@ -65,5 +69,7 @@
  *          show below details of every house
  *              house-id:
  *              address:
- *              total members;
+ *              total members:
+ * 
  */
+
